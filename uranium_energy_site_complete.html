@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071522">
+<title>انرژی هسته‌ای | از اورانیوم تا روشنایی</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+:root{--bg:#071522;--panel:#0d2030;--panel2:#10283a;--line:rgba(183,218,231,.13);--text:#eef7fa;--muted:#a7bdc8;--cyan:#62d9df;--gold:#e9c77a;--green:#75d6a2;--shadow:0 22px 70px rgba(0,0,0,.28);--radius:22px}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% -10%,rgba(39,128,151,.22),transparent 36%),radial-gradient(ellipse at 0% 40%,rgba(35,91,119,.12),transparent 30%),var(--bg);color:var(--text);font-family:'Vazirmatn',Tahoma,sans-serif;line-height:1.9}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.wrap{width:min(1140px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(7,21,34,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.4px}
+.brand-mark{width:39px;height:39px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#79e1df,#b2e8c9);color:#09202c;font-size:21px;box-shadow:0 8px 24px #52cdd333}
+nav{display:flex;gap:23px;color:var(--muted);font-size:13px}
+nav a:hover{color:var(--cyan)}
+.nav-cta,.btn{border:1px solid rgba(98,217,223,.35);background:rgba(98,217,223,.1);color:var(--cyan);border-radius:12px;padding:9px 15px;font-size:13px;font-weight:700}
+.menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:10px;padding:7px 11px}
+.hero{padding:82px 0 65px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:45px;min-height:590px}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:1px;display:flex;align-items:center;gap:9px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}
+h1{font-size:clamp(38px,5.4vw,66px);line-height:1.25;margin:18px 0 20px;letter-spacing:-2px}
+h1 span{background:linear-gradient(90deg,#79e1df,#e9d49c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:16px;max-width:600px;line-height:2.15}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn.primary{background:linear-gradient(120deg,#72dedc,#a9e3c1);color:#08202a;border:0;padding:12px 20px;box-shadow:0 10px 30px #56caca26}
+.btn.ghost{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.03);padding:12px 20px}
+.hero-art{position:relative;min-height:390px;display:grid;place-items:center}
+.orbit{width:min(370px,85vw);aspect-ratio:1;border-radius:50%;border:1px solid rgba(98,217,223,.22);display:grid;place-items:center;position:relative;background:radial-gradient(circle,rgba(68,182,195,.12),transparent 64%);box-shadow:inset 0 0 80px rgba(54,159,177,.07),0 0 90px rgba(40,142,159,.08)}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(98,217,223,.18);border-radius:50%;inset:35px;transform:rotateX(65deg) rotate(-25deg)}
+.orbit:after{inset:65px;transform:rotateX(65deg) rotate(45deg)}
+.atom{font-size:120px;color:var(--cyan);text-shadow:0 0 38px #56d8df88;filter:drop-shadow(0 0 20px #53cbd655)}
+.orbit-label{position:absolute;bottom:24px;right:-12px;background:#102b3b;border:1px solid var(--line);padding:9px 13px;border-radius:12px;font-size:12px;color:var(--muted)}
+.orbit-label b{color:var(--gold)}
+.float-card{position:absolute;top:25px;left:-3px;padding:13px 16px;border:1px solid var(--line);background:rgba(13,32,48,.9);border-radius:15px;box-shadow:var(--shadow);font-size:12px;color:var(--muted)}
+.float-card strong{display:block;color:var(--green);font-size:20px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 65px}
+.stat{padding:18px 20px;border:1px solid var(--line);border-radius:17px;background:rgba(13,32,48,.55)}
+.stat b{display:block;font-size:23px;color:var(--cyan);direction:ltr;text-align:right}
+.stat span{color:var(--muted);font-size:12px}
+section{padding:65px 0;scroll-margin-top:80px}
+.section-head{max-width:690px;margin-bottom:30px}
+.kicker{font-size:11px;color:var(--gold);font-weight:800;letter-spacing:.8px}
+h2{font-size:clamp(26px,3.2vw,38px);line-height:1.4;margin:7px 0 10px;letter-spacing:-.7px}
+.section-head p,.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:linear-gradient(145deg,rgba(16,40,58,.92),rgba(10,28,43,.92));border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 9px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.iconbox{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:rgba(98,217,223,.1);color:var(--cyan);font-size:21px;margin-bottom:15px}
+.isotope{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.iso{padding:18px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+.iso b{font-size:25px;color:var(--gold)}
+.iso small{display:block;color:var(--muted)}
+.bar{height:7px;border-radius:8px;background:#1d3949;overflow:hidden;margin:12px 0 5px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:8px}
+.callout{border-right:3px solid var(--gold);background:rgba(233,199,122,.07);padding:15px 18px;border-radius:12px;color:#e8d9b7;font-size:13px;margin-top:18px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:step}
+.step{position:relative;padding:20px 17px;border:1px solid var(--line);background:rgba(13,32,48,.72);border-radius:17px;min-height:165px}
+.step:before{counter-increment:step;content:"۰" counter(step);font-size:12px;color:var(--cyan);font-weight:800}
+.step h3{font-size:15px;margin:9px 0 5px}
+.step p{font-size:12px;color:var(--muted);margin:0}
+.fission-box{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+.fission-visual{min-height:270px;border-radius:22px;border:1px solid var(--line);background:radial-gradient(circle at center,rgba(98,217,223,.14),rgba(13,32,48,.5) 62%);display:grid;place-items:center;position:relative;overflow:hidden}
+.fission-visual .nucleus{font-size:68px;color:var(--gold);filter:drop-shadow(0 0 18px #e9c77a66)}
+.particle{position:absolute;color:var(--cyan);font-size:24px;animation:float 3s ease-in-out infinite}
+.p1{top:20%;right:25%}.p2{bottom:22%;left:22%;animation-delay:1s}.p3{top:30%;left:18%;animation-delay:1.7s}
+@keyframes float{50%{transform:translate(10px,-12px)}}
+.equation{direction:ltr;text-align:center;padding:17px;background:#071a28;border:1px solid var(--line);border-radius:13px;font-size:18px;color:var(--gold);margin-top:15px}
+.plant{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.plant-diagram{background:linear-gradient(145deg,#0d2638,#091a29);border:1px solid var(--line);border-radius:22px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:center}
+.plant-part{border:1px solid rgba(98,217,223,.2);background:rgba(98,217,223,.055);border-radius:13px;padding:14px;text-align:center;min-height:93px}
+.plant-part span{font-size:25px;display:block}
+.plant-part b{font-size:12px}
+.plant-part small{display:block;color:var(--muted);font-size:10px}
+.list{display:grid;gap:12px}
+.list-item{display:flex;gap:13px;align-items:flex-start}
+.num{flex:0 0 29px;height:29px;border-radius:10px;background:rgba(98,217,223,.12);color:var(--cyan);display:grid;place-items:center;font-size:12px;font-weight:800}
+.list-item b{font-size:14px}.list-item p{font-size:12px;color:var(--muted);margin:2px 0}
+.compare{width:100%;border-collapse:collapse;font-size:13px;overflow:hidden;border-radius:14px}
+.compare th,.compare td{padding:13px 15px;text-align:right;border-bottom:1px solid var(--line)}
+.compare th{color:var(--cyan);background:rgba(98,217,223,.07)}
+.compare td{color:var(--muted)}
+.compare tr:last-child td{border:0}
+.timeline{border-right:1px solid rgba(98,217,223,.3);margin-right:10px;padding-right:22px;display:grid;gap:18px}
+.event{position:relative}.event:before{content:"";position:absolute;right:-28px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.event b{color:var(--gold);font-size:13px}.event p{margin:2px 0;color:var(--muted);font-size:13px}
+.quiz{max-width:780px}
+.qmeta{color:var(--cyan);font-size:12px;font-weight:700}
+.question{font-size:19px;font-weight:700;margin:12px 0 20px}
+.options{display:grid;gap:10px}
+.option{border:1px solid var(--line);border-radius:12px;padding:12px 15px;background:rgba(255,255,255,.025);color:var(--text);text-align:right}
+.option:hover{border-color:rgba(98,217,223,.5)}
+.option.correct{border-color:var(--green);background:rgba(117,214,162,.1)}
+.option.wrong{border-color:#e88b8b;background:rgba(232,139,139,.08)}
+.feedback{min-height:30px;color:var(--muted);font-size:13px;margin:12px 0}
+.quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.faq details{border-bottom:1px solid var(--line);padding:15px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:14px}
+.faq details p{color:var(--muted);font-size:13px;margin:9px 0 0}
+footer{border-top:1px solid var(--line);padding:35px 0 45px;color:var(--muted);font-size:12px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.backtop{position:fixed;bottom:20px;left:20px;width:42px;height:42px;border-radius:13px;background:#15384a;border:1px solid var(--line);color:var(--cyan);display:grid;place-items:center;opacity:0;pointer-events:none;transition:.2s}
+.backtop.show{opacity:1;pointer-events:auto}
+@media(max-width:850px){nav{display:none;position:absolute;top:76px;right:0;left:0;background:#0a1d2c;padding:18px 25px;flex-direction:column;border-bottom:1px solid var(--line)}nav.open{display:flex}.menu{display:block}.nav-cta{display:none}.hero{grid-template-columns:1fr;padding-top:55px;gap:15px}.hero-art{min-height:320px}.orbit{width:290px}.atom{font-size:95px}.grid2,.fission-box,.plant{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.stats{margin-bottom:25px}}
+@media(max-width:520px){.wrap{width:min(100% - 28px,1140px)}.hero{min-height:auto;padding:45px 0 25px}h1{font-size:39px}.lead{font-size:14px}.hero-art{min-height:285px}.orbit{width:255px}.float-card{left:0;top:8px}.orbit-label{right:0}.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:span 2}.stat{padding:13px}.stat b{font-size:20px}.process{grid-template-columns:1fr}.step{min-height:0}.card{padding:20px}section{padding:48px 0}.isotope{grid-template-columns:1fr 1fr}.compare{font-size:11px}.compare th,.compare td{padding:10px 8px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#home"><span class="brand-mark">☼</span><span>هسته‌نما <small style="display:block;color:var(--muted);font-size:9px;font-weight:400;letter-spacing:1px">از اتم تا انرژی</small></span></a>
+  <nav id="nav">
+   <a href="#uranium">اورانیوم</a><a href="#fission">شکافت</a><a href="#process">تولید برق</a><a href="#reactors">انواع راکتور</a><a href="#safety">ایمنی</a><a href="#pros-cons">ارزیابی</a><a href="#quiz">آزمون</a>
+  </nav>
+  <a class="nav-cta" href="#process">شروع یادگیری ←</a>
+  <button class="menu" id="menu" aria-label="باز کردن منو">☰</button>
+ </div>
+</header>
+<main>
+<section class="wrap hero" id="home">
+ <div>
+  <div class="eyebrow"><i class="dot"></i> راهنمای تعاملی انرژی هسته‌ای</div>
+  <h1>از دل اتم،<br><span>انرژی برای جهان</span></h1>
+  <p class="lead">چطور یک ماده طبیعی به نام اورانیوم می‌تواند برق خانه‌ها و کارخانه‌ها را تأمین کند؟ در این راهنمای علمی، مسیر تبدیل انرژی هسته‌ای به برق را ساده و مرحله‌به‌مرحله یاد می‌گیریم.</p>
+  <div class="actions"><a class="btn primary" href="#uranium">کشف دنیای اورانیوم <span>←</span></a><a class="btn ghost" href="#process">فرایند تولید برق</a></div>
+ </div>
+ <div class="hero-art">
+  <div class="orbit"><div class="atom">⚛</div><div class="orbit-label">انرژی نهفته در <b>هسته اتم</b></div></div>
+  <div class="float-card">انرژی هسته‌ای<strong>قدرت از اتم</strong></div>
+ </div>
+</section>
+<div class="wrap stats">
+ <div class="stat"><b>۹۲</b><span>عدد اتمی اورانیوم</span></div>
+ <div class="stat"><b>۰٫۷٪</b><span>سهم تقریبی اورانیوم ۲۳۵ در اورانیوم طبیعی</span></div>
+ <div class="stat"><b>۲۴/۷</b><span>قابلیت تولید پیوسته برق، با توقف‌های برنامه‌ریزی‌شده</span></div>
+</div>
+
+<section class="wrap" id="uranium">
+ <div class="section-head"><div class="kicker">۰۱ / شناخت سوخت</div><h2>اورانیوم چیست؟</h2><p>اورانیوم عنصری طبیعی، سنگین و پرتوزاست که در سنگ‌ها و خاک زمین یافت می‌شود. بعضی از ایزوتوپ‌های آن برای تولید انرژی در راکتورهای هسته‌ای کاربرد دارند.</p></div>
+ <div class="grid2">
+  <article class="card">
+   <div class="iconbox">⚛</div><h3>دو ایزوتوپ مهم</h3><p>ایزوتوپ‌ها اتم‌های یک عنصرند که تعداد پروتون یکسان، اما تعداد نوترون متفاوت دارند.</p>
+   <div class="isotope">
+    <div class="iso"><b>U-235</b><small>حدود ۰٫۷٪ از اورانیوم طبیعی</small><div class="bar"><i style="width:7%"></i></div><small>قابل شکافت با نوترون‌های کم‌سرعت</small></div>
+    <div class="iso"><b>U-238</b><small>حدود ۹۹٫۳٪ از اورانیوم طبیعی</small><div class="bar"><i style="width:99.3%"></i></div><small>فراوان‌ترین ایزوتوپ طبیعی</small></div>
+   </div>
+  </article>
+  <article class="card">
+   <div class="iconbox">◈</div><h3>غنی‌سازی یعنی چه؟</h3><p>در بسیاری از نیروگاه‌های متداول، سهم اورانیوم ۲۳۵ در سوخت افزایش داده می‌شود. به این فرایند «غنی‌سازی» می‌گویند. غنی‌سازی یعنی افزایش نسبت یک ایزوتوپ در مخلوط، نه ساختن عنصر تازه.</p>
+   <div class="callout">سوخت بسیاری از راکتورهای برق تجاری، اورانیومی با غنای چند درصدی است؛ مقدار دقیق به نوع راکتور و طراحی سوخت بستگی دارد.</div>
+  </article>
+ </div>
+</section>
+
+<section class="wrap" id="fission">
+ <div class="section-head"><div class="kicker">۰۲ / آزاد شدن انرژی</div><h2>شکافت هسته‌ای چگونه رخ می‌دهد؟</h2><p>در شکافت، هسته یک اتم سنگین مانند اورانیوم ۲۳۵ پس از جذب نوترون، به هسته‌های کوچک‌تر تقسیم می‌شود و انرژی و نوترون‌های تازه آزاد می‌کند.</p></div>
+ <div class="fission-box">
+  <div class="fission-visual"><span class="particle p1">• n</span><span class="particle p2">• n</span><span class="particle p3">• n</span><div class="nucleus">⚛</div></div>
+  <div>
+   <h3>واکنش زنجیره‌ای</h3><p class="muted">نوترون‌های آزادشده می‌توانند به هسته‌های دیگر برخورد کنند و شکافت‌های بیشتری به وجود آورند. اگر این فرایند کنترل شود، انرژی به‌صورت پایدار تولید می‌شود.</p>
+   <div class="equation">U-235 + n → Fission + energy + neutrons</div>
+   <div class="callout">در راکتور، هدف کنترل تعداد نوترون‌ها و حفظ واکنش در سطح مناسب است؛ نه افزایش بی‌مهار آن.</div>
+  </div>
+ </div>
+ <div class="grid2" style="margin-top:18px">
+  <article class="card"><h3>میله‌های سوخت</h3><p>قرص‌های کوچک سرامیکیِ دی‌اکسید اورانیوم درون لوله‌های فلزی مخصوص قرار می‌گیرند. این مجموعه‌ها سوخت راکتور را تشکیل می‌دهند.</p></article>
+  <article class="card"><h3>میله‌های کنترل</h3><p>از موادی مانند بور ساخته می‌شوند که نوترون‌ها را جذب می‌کنند. با تنظیم آن‌ها می‌توان توان راکتور را کنترل و در شرایط اضطراری واکنش زنجیره‌ای را متوقف کرد.</p></article>
+ </div>
+</section>
+
+<section class="wrap" id="process">
+ <div class="section-head"><div class="kicker">۰۳ / از گرما تا روشنایی</div><h2>مراحل تولید برق در نیروگاه</h2><p>نیروگاه هسته‌ای در اصل از گرمای راکتور برای چرخاندن توربین و راه‌اندازی ژنراتور استفاده می‌کند.</p></div>
+ <div class="process">
+  <div class="step"><h3>شکافت اورانیوم</h3><p>در قلب راکتور، هسته‌های اورانیوم شکافته می‌شوند و گرما آزاد می‌کنند.</p></div>
+  <div class="step"><h3>گرم شدن آب</h3><p>خنک‌کننده گرمای راکتور را می‌گیرد و آن را به بخش تولید بخار منتقل می‌کند.</p></div>
+  <div class="step"><h3>چرخش توربین</h3><p>بخار پرفشار به پره‌های توربین برخورد می‌کند و آن را می‌چرخاند.</p></div>
+  <div class="step"><h3>تولید برق</h3><p>توربین ژنراتور را می‌چرخاند و انرژی مکانیکی به برق تبدیل می‌شود.</p></div>
+ </div>
+ <div class="plant" style="margin-top:22px">
+  <div class="plant-diagram">
+   <div class="plant-part"><span>☢</span><b>راکتور</b><small>تولید گرما</small></div>
+   <div class="plant-part"><span>♨</span><b>مولد بخار</b><small>انتقال گرما به آب مدار دوم</small></div>
+   <div class="plant-part"><span>⚙</span><b>توربین</b><small>تبدیل انرژی بخار به حرکت</small></div>
+   <div class="plant-part"><span>ϟ</span><b>ژنراتور</b><small>تبدیل حرکت به برق</small></div>
+   <div class="plant-part" style="grid-column:span 2"><span>❄</span><b>کندانسور و خنک‌کننده</b><small>تبدیل بخار خروجی به آب و بازگشت به چرخه</small></div>
+  </div>
+  <div class="card">
+   <h3>یک چرخه پیوسته</h3>
+   <div class="list">
+    <div class="list-item"><span class="num">۱</span><div><b>مدار اولیه</b><p>آب تحت فشار، گرمای قلب راکتور را جذب می‌کند.</p></div></div>
+    <div class="list-item"><span class="num">۲</span><div><b>مدار ثانویه</b><p>گرما به آب جداگانه منتقل می‌شود و بخار تولید می‌کند.</p></div></div>
+    <div class="list-item"><span class="num">۳</span><div><b>توربین و ژنراتور</b><p>بخار توربین را می‌چرخاند و ژنراتور برق تولید می‌کند.</p></div></div>
+    <div class="list-item"><span class="num">۴</span><div><b>بازگشت آب</b><p>بخار خنک می‌شود، به آب تبدیل می‌شود و دوباره وارد چرخه می‌شود.</p></div></div>
+   </div>
+   <div class="callout">این توضیح مربوط به یک نوع رایج نیروگاه، یعنی راکتور آب فشرده (PWR) است. طراحی همه نیروگاه‌های هسته‌ای دقیقاً یکسان نیست.</div>
+  </div>
+ </div>
+</section>
+
+<section class="wrap" id="fuel">
+ <div class="section-head"><div class="kicker">۰۴ / مسیر سوخت</div><h2>اورانیوم از معدن تا نیروگاه</h2><p>اورانیوم پیش از استفاده در راکتور، چند مرحله آماده‌سازی را پشت سر می‌گذارد.</p></div>
+ <div class="process">
+  <div class="step"><h3>استخراج</h3><p>سنگ معدن دارای اورانیوم از زمین استخراج می‌شود.</p></div>
+  <div class="step"><h3>فرآوری</h3><p>مواد معدنی پردازش می‌شوند تا کنسانتره اورانیوم به دست آید.</p></div>
+  <div class="step"><h3>آماده‌سازی سوخت</h3><p>در صورت نیاز غنی‌سازی انجام می‌شود و سوخت به شکل قرص درمی‌آید.</p></div>
+  <div class="step"><h3>استفاده در راکتور</h3><p>مجموعه‌های سوخت در قلب راکتور قرار می‌گیرند.</p></div>
+ </div>
+ <div class="card" style="margin-top:18px"><h3>بعد از مصرف سوخت چه می‌شود؟</h3><p>سوخت مصرف‌شده هنوز پرتوزاست و گرما تولید می‌کند. ابتدا در استخرهای مخصوص خنک و محافظت می‌شود و سپس ممکن است به مخازن خشک منتقل شود. بعضی کشورها بخشی از مواد آن را بازیافت می‌کنند و برخی دیگر آن را برای دفع نهایی ایمن آماده می‌کنند.</p></div>
+</section>
+
+<section class="wrap" id="pros-cons">
+ <div class="section-head"><div class="kicker">۰۵ / ارزیابی واقع‌بینانه</div><h2>مزایا و چالش‌های انرژی هسته‌ای</h2><p>انرژی هسته‌ای ظرفیت بالایی برای تولید برق دارد، اما مانند هر فناوری دیگری هزینه‌ها و محدودیت‌های خود را نیز دارد.</p></div>
+ <div class="grid2">
+  <article class="card"><div class="iconbox" style="color:var(--green)">＋</div><h3>مزایا</h3><div class="list">
+   <div class="list-item"><span class="num">✓</span><div><b>تولید انرژی زیاد</b><p>مقدار کمی سوخت می‌تواند انرژی فراوانی آزاد کند.</p></div></div>
+   <div class="list-item"><span class="num">✓</span><div><b>انتشار کربن پایین</b><p>هنگام تولید برق، سوخت فسیلی سوزانده نمی‌شود.</p></div></div>
+   <div class="list-item"><span class="num">✓</span><div><b>تولید پایدار</b><p>می‌تواند مستقل از تابش خورشید و وزش باد برق تولید کند.</p></div></div>
+  </div></article>
+  <article class="card"><div class="iconbox" style="color:#e99b9b">−</div><h3>معایب و چالش‌ها</h3><div class="list">
+   <div class="list-item"><span class="num">!</span><div><b>هزینه ساخت بالا</b><p>ساخت و راه‌اندازی نیروگاه سرمایه‌گذاری بزرگی می‌خواهد.</p></div></div>
+   <div class="list-item"><span class="num">!</span><div><b>پسماند پرتوزا</b><p>سوخت مصرف‌شده به مدیریت و نگهداری ویژه نیاز دارد.</p></div></div>
+   <div class="list-item"><span class="num">!</span><div><b>خطر حوادث</b><p>نقص‌های جدی در سامانه‌های ایمنی می‌توانند پیامدهای خطرناک داشته باشند.</p></div></div>
+  </div></article>
+ </div>
+ <div class="card" style="margin-top:18px;overflow-x:auto">
+  <h3>مقایسه نیروگاه هسته‌ای و گازی</h3>
+  <table class="compare"><thead><tr><th>ویژگی</th><th>هسته‌ای</th><th>گازی</th></tr></thead><tbody>
+   <tr><td>منبع انرژی</td><td>اورانیوم</td><td>گاز طبیعی</td></tr>
+   <tr><td>روش تولید گرما</td><td>شکافت هسته‌ای</td><td>احتراق گاز</td></tr>
+   <tr><td>انتشار مستقیم CO₂</td><td>بسیار کم</td><td>زیادتر</td></tr>
+   <tr><td>پسماند پرتوزا</td><td>دارد</td><td>ندارد</td></tr>
+   <tr><td>هزینه ساخت</td><td>معمولاً بالا</td><td>معمولاً کمتر</td></tr>
+  </tbody></table>
+ </div>
+</section>
+
+<section class="wrap" id="safety">
+ <div class="section-head"><div class="kicker">۰۶ / ایمنی و تاریخ</div><h2>خطرات هسته‌ای و درس‌های تاریخ</h2><p>نیروگاه‌های هسته‌ای با چندین لایه حفاظتی طراحی می‌شوند، اما ایمنی کامل به طراحی درست، نگهداری و عملکرد دقیق سامانه‌ها وابسته است.</p></div>
+ <div class="grid2">
+  <div class="card"><h3>چگونه از راکتور محافظت می‌شود؟</h3><div class="list">
+   <div class="list-item"><span class="num">۱</span><div><b>ساختمان محصورکننده</b><p>سازه‌ای مقاوم برای محدود کردن انتشار مواد پرتوزا.</p></div></div>
+   <div class="list-item"><span class="num">۲</span><div><b>خنک‌کاری اضطراری</b><p>کمک به جلوگیری از داغ شدن بیش از حد سوخت.</p></div></div>
+   <div class="list-item"><span class="num">۳</span><div><b>توقف اضطراری</b><p>کاهش سریع واکنش زنجیره‌ای با سامانه‌های کنترلی.</p></div></div>
+  </div></div>
+  <div class="card"><h3>دو حادثه مهم</h3><div class="timeline">
+   <div class="event"><b>۱۹۸۶ — چرنوبیل</b><p>ترکیبی از نقص‌های طراحی و خطاهای عملیاتی به انفجار و آتش‌سوزی راکتور انجامید و مواد پرتوزا آزاد شد.</p></div>
+   <div class="event"><b>۲۰۱۱ — فوکوشیما</b><p>زلزله و سونامی باعث از دست رفتن برق و خنک‌کاری شد و در چند واحد نیروگاه آسیب جدی به سوخت وارد آمد.</p></div>
+  </div></div>
+ </div>
+ <div class="callout">نیروگاه هسته‌ای مانند بمب اتمی منفجر نمی‌شود؛ اما در حادثه شدید، انفجار بخار یا هیدروژن و انتشار مواد پرتوزا ممکن است رخ دهد.</div>
+</section>
+
+<section class="wrap" id="fusion">
+ <div class="section-head"><div class="kicker">۰۷ / یک تفاوت مهم</div><h2>شکافت با همجوشی چه فرقی دارد؟</h2></div>
+ <div class="grid2">
+  <div class="card"><div class="iconbox">⚛</div><h3>شکافت هسته‌ای</h3><p>یک هسته سنگین مانند اورانیوم به هسته‌های کوچک‌تر تقسیم می‌شود. نیروگاه‌های هسته‌ای تجاری امروز عمدتاً از این روش استفاده می‌کنند.</p></div>
+  <div class="card"><div class="iconbox">☀</div><h3>همجوشی هسته‌ای</h3><p>هسته‌های سبک، مانند ایزوتوپ‌های هیدروژن، با هم ترکیب می‌شوند. این فرایند منبع انرژی خورشید است و هنوز به تولید برق تجاری گسترده نرسیده است.</p></div>
+ </div>
+</section>
+
+<section class="wrap" id="quiz">
+ <div class="section-head"><div class="kicker">۰۸ / سنجش یادگیری</div><h2>دانسته‌هایت را امتحان کن</h2><p>به چهار پرسش کوتاه پاسخ بده و ببین چقدر با تولید برق هسته‌ای آشنا شده‌ای.</p></div>
+ <div class="card quiz">
+  <div class="qmeta" id="qmeta">پرسش ۱ از ۴</div><div class="question" id="question">در بیشتر نیروگاه‌های هسته‌ای متداول، کدام ایزوتوپ نقش اصلی در شکافت دارد؟</div>
+  <div class="options" id="options"></div><div class="feedback" id="feedback" aria-live="polite"></div>
+  <div class="quiz-actions"><span class="muted" id="score">امتیاز: ۰</span><button class="btn primary" id="next" disabled>پرسش بعدی ←</button></div>
+ </div>
+</section>
+
+<section class="wrap" id="faq">
+ <div class="section-head"><div class="kicker">پرسش‌های رایج</div><h2>سؤالات متداول</h2></div>
+ <div class="card faq">
+  <details><summary>آیا نیروگاه هسته‌ای دود تولید می‌کند؟</summary><p>در فرایند تولید برق، سوختی مانند زغال‌سنگ یا گاز نمی‌سوزد. بخار سفیدرنگی که از برج خنک‌کننده دیده می‌شود عمدتاً قطرات ریز آب است.</p></details>
+  <details><summary>آیا تمام اورانیوم طبیعی برای سوخت مناسب است؟</summary><p>خیر. در بسیاری از راکتورهای برق، نسبت اورانیوم ۲۳۵ باید با فرایند غنی‌سازی افزایش یابد؛ البته فناوری و نوع سوخت راکتورها متفاوت است.</p></details>
+  <details><summary>چرا سوخت مصرف‌شده خطرناک است؟</summary><p>زیرا محصولات شکافت و عناصر پرتوزا در آن وجود دارند و پس از خروج از راکتور نیز برای مدتی گرما و پرتو تولید می‌کند.</p></details>
+  <details><summary>آیا برق هسته‌ای کاملاً بدون آلودگی است؟</summary><p>خیر. انتشار کربن در زمان تولید برق بسیار کم است، اما استخراج و آماده‌سازی سوخت، ساخت نیروگاه، مصرف آب و مدیریت پسماند آثار محیط‌زیستی دارند.</p></details>
+ </div>
+</section>
+
+<section class="wrap" id="reactors">
+ <div class="section-head"><div class="kicker">۰۹ / فناوری راکتورها</div><h2>انواع راکتورهای هسته‌ای</h2>
+ <p>همه نیروگاه‌های هسته‌ای با یک طراحی ساخته نمی‌شوند. تفاوت اصلی آن‌ها در نوع خنک‌کننده، کندکننده نوترون، شیوه تولید بخار و نوع سوخت است. شناخت این تفاوت‌ها کمک می‌کند نقشه نیروگاه را بهتر بفهمیم.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>راکتور آب فشرده (PWR)</h3><p>در این طراحی، آب مدار اولیه از قلب راکتور عبور می‌کند و گرما را می‌گیرد، اما به دلیل فشار بالا به جوش نمی‌آید. سپس گرما را در مولد بخار به آب مدار دوم منتقل می‌کند. بخار مدار دوم توربین را می‌چرخاند. جدا بودن دو مدار باعث می‌شود آب مدار راکتور مستقیماً وارد توربین نشود. این نوع، رایج‌ترین طراحی نیروگاه‌های برق هسته‌ای در جهان است.</p></article>
+  <article class="card"><h3>راکتور آب جوشان (BWR)</h3><p>در این نوع، آب داخل مخزن راکتور با دریافت گرمای شکافت به جوش می‌آید. بخار تولیدشده پس از جدا شدن قطرات آب، مستقیماً به توربین فرستاده می‌شود. بنابراین برخلاف PWR، برای تولید بخار یک مدار ثانویه و مولد بخار جداگانه به همان شکل وجود ندارد. مسیر بخار و تجهیزات توربین باید متناسب با ویژگی‌های پرتویی این طراحی مدیریت شوند.</p></article>
+  <article class="card"><h3>راکتور آب سنگین (PHWR)</h3><p>این راکتورها از آب سنگین، یعنی آبی که در آن بخشی از هیدروژن معمولی با دوتریوم جایگزین شده، به‌عنوان کندکننده و معمولاً خنک‌کننده استفاده می‌کنند. آب سنگین نوترون‌ها را به‌خوبی کند می‌کند و برخی طراحی‌ها می‌توانند از اورانیوم طبیعی به‌عنوان سوخت استفاده کنند. راکتورهای کانادایی CANDU نمونه شناخته‌شده‌ای از این خانواده‌اند.</p></article>
+  <article class="card"><h3>راکتورهای کوچک ماژولار (SMR)</h3><p>SMR نام یک خانواده از طرح‌های کوچک‌تر و ماژولار است، نه یک نوع واحد از واکنش هسته‌ای. ایده این است که بخش‌های بیشتری از نیروگاه در کارخانه ساخته و سپس در محل نصب شوند. این روش ممکن است در برخی پروژه‌ها انعطاف‌پذیری و امکان ساخت مرحله‌ای ایجاد کند؛ اما هزینه واقعی، زمان ساخت، مجوزها و تجربه عملیاتی باید برای هر طرح جداگانه بررسی شوند. کوچک‌تر بودن به‌تنهایی تضمین‌کننده ارزان‌تر بودن نیست.</p></article>
+ </div>
+ <div class="callout">نکته: PWR و BWR هر دو معمولاً از آب معمولی به‌عنوان خنک‌کننده و کندکننده استفاده می‌کنند؛ تفاوت مهمشان این است که آب در کدام مدار به بخار تبدیل می‌شود.</div>
+</section>
+
+<section class="wrap" id="physics">
+ <div class="section-head"><div class="kicker">۱۰ / فیزیک ساده راکتور</div><h2>نوترون، کندکننده و خنک‌کننده چه نقشی دارند؟</h2>
+ <p>برای ادامه واکنش شکافت، فقط وجود اورانیوم کافی نیست؛ نوترون‌ها نیز باید در شرایط مناسبی حرکت کنند و گرمای تولیدشده باید پیوسته از قلب راکتور خارج شود.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>نوترون چیست؟</h3><p>نوترون ذره‌ای بدون بار الکتریکی است که در هسته اتم قرار دارد. هنگام شکافت اورانیوم، معمولاً چند نوترون آزاد می‌شود. این نوترون‌ها می‌توانند به هسته‌های دیگر برخورد کنند و شکافت‌های تازه‌ای ایجاد کنند. تعداد نوترون‌هایی که در واکنش‌های بعدی مؤثر می‌مانند، بر توان راکتور اثر می‌گذارد.</p></article>
+  <article class="card"><h3>کندکننده نوترون (Moderator)</h3><p>در بسیاری از راکتورهای حرارتی، نوترون‌های سریع با برخوردهای پی‌درپی به آب یا گرافیت کند می‌شوند. نوترون‌های کند در اورانیوم ۲۳۵ احتمال بیشتری برای ایجاد شکافت دارند. آب معمولی، آب سنگین و گرافیت از مواد رایج کندکننده‌اند؛ البته همه راکتورها به کندکننده نیاز ندارند.</p></article>
+  <article class="card"><h3>خنک‌کننده (Coolant)</h3><p>خنک‌کننده گرمای تولیدشده در سوخت را از قلب راکتور بیرون می‌برد و به سامانه تولید بخار یا مصرف‌کننده گرما منتقل می‌کند. آب، گاز، فلز مایع و نمک مذاب در طرح‌های مختلف به‌عنوان خنک‌کننده بررسی یا استفاده شده‌اند. انتخاب خنک‌کننده بر طراحی، فشار، دما و سامانه‌های ایمنی اثر می‌گذارد.</p></article>
+  <article class="card"><h3>بحرانی بودن راکتور</h3><p>وقتی به‌طور میانگین یک نوترون از هر شکافت باعث شکافت بعدی شود، زنجیره واکنش در سطحی پایدار ادامه می‌یابد؛ به این وضعیت بحرانی می‌گویند. زیر بحرانی یعنی واکنش به‌تدریج کاهش می‌یابد و فوق بحرانی یعنی جمعیت نوترون‌ها و توان راکتور در حال افزایش است. «بحرانی» در این معنا به معنی حادثه یا انفجار نیست؛ اصطلاحی فنی برای تعادل واکنش است.</p></article>
+ </div>
+</section>
+
+<section class="wrap" id="radiation">
+ <div class="section-head"><div class="kicker">۱۱ / پرتو و سلامت</div><h2>رادیواکتیویته و تشعشع چه تفاوتی دارند؟</h2>
+ <p>واژه «پرتو» گاهی باعث نگرانی یا سوءبرداشت می‌شود. برای فهم ایمنی هسته‌ای باید میان ماده پرتوزا، تابش و دریافت پرتو تفاوت قائل شویم.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>پرتوزایی چیست؟</h3><p>برخی هسته‌های اتمی ناپایدارند و برای رسیدن به حالت پایدارتر، انرژی یا ذراتی آزاد می‌کنند. به این ویژگی پرتوزایی می‌گویند. تابش می‌تواند به شکل ذرات آلفا و بتا یا پرتوهای گاما باشد. پرتوهای یون‌ساز انرژی کافی دارند تا الکترون را از اتم جدا کنند؛ به همین دلیل، در صورت دریافت دوز نامناسب می‌توانند به بافت‌های زنده آسیب برسانند.</p></article>
+  <article class="card"><h3>تابش با آلودگی پرتوزا یکی نیست</h3><p>قرار گرفتن در معرض تابش یعنی انرژی پرتو به بدن می‌رسد؛ اما آلودگی پرتوزا زمانی رخ می‌دهد که ماده رادیواکتیو روی پوست، لباس یا داخل بدن قرار بگیرد. این دو مفهوم به هم مرتبط‌اند اما یکسان نیستند. در آلودگی، خود ماده پرتوزا منبع تابش است و ممکن است تا زمان پاک‌سازی یا دفع از بدن، تابش ادامه داشته باشد.</p></article>
+  <article class="card"><h3>دوز پرتو یعنی چه؟</h3><p>دوز، معیاری برای توصیف مقدار انرژی جذب‌شده و اثر زیستی پرتو است. واحدهایی مانند گری (Gy) و سیورت (Sv) برای کمیت‌های متفاوت به کار می‌روند. دوز دریافتی به نوع پرتو، مقدار انرژی، مدت مواجهه و بافتی که در معرض آن قرار گرفته بستگی دارد. بنابراین صرف شنیدن عدد یک اندازه‌گیری، بدون دانستن واحد و شرایط، برای قضاوت کافی نیست.</p></article>
+  <article class="card"><h3>چگونه از افراد محافظت می‌شود؟</h3><p>اصول پایه حفاظت پرتویی شامل کاهش زمان مواجهه، افزایش فاصله از منبع و استفاده از حفاظ مناسب است. نوع حفاظ به نوع پرتو بستگی دارد؛ برای مثال مواد مناسب برای کاهش پرتو گاما با محافظت در برابر ذرات آلفا یکسان نیست. کارکنان نیروگاه از پایش فردی، کنترل محیط و دستورالعمل‌های تخصصی استفاده می‌کنند.</p></article>
+ </div>
+ <div class="callout">پرتوزایی طبیعی نیز در محیط وجود دارد؛ از جمله پرتوهای کیهانی و مواد طبیعی موجود در خاک و سنگ. وجود تابش به‌تنهایی به معنی وقوع حادثه نیست؛ مقدار، نوع و مدت مواجهه اهمیت دارد.</div>
+</section>
+
+<section class="wrap" id="waste">
+ <div class="section-head"><div class="kicker">۱۲ / پسماند و پایان چرخه سوخت</div><h2>پسماند هسته‌ای چگونه مدیریت می‌شود؟</h2>
+ <p>یکی از مسئولیت‌های مهم هر برنامه هسته‌ای، مدیریت مواد پرتوزایی است که در استخراج، تولید سوخت، کارکرد راکتور، تعمیرات و برچیدن نیروگاه ایجاد می‌شوند. همه پسماندها شدت پرتوزایی یا عمر یکسانی ندارند.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>پسماند کم‌پرتوزا</h3><p>این گروه می‌تواند شامل لباس، فیلتر، ابزار و مواد مصرفی آلوده‌شده یا دارای مقدار کم مواد پرتوزا باشد. پس از جداسازی و اندازه‌گیری، ممکن است فشرده‌سازی، سوزاندن کنترل‌شده، تثبیت یا بسته‌بندی شود. روش نهایی به ویژگی‌های پسماند و مقررات کشور بستگی دارد.</p></article>
+  <article class="card"><h3>پسماند میان‌پرتوزا</h3><p>این مواد پرتوزایی بیشتری دارند یا برای محافظت از کارکنان به حفاظ نیاز دارند. نمونه‌هایی از تجهیزات و قطعات داخلی راکتور می‌توانند در این گروه قرار بگیرند. معمولاً لازم است پیش از انتقال و دفع، در بسته‌بندی‌های مهندسی‌شده تثبیت و نگهداری شوند.</p></article>
+  <article class="card"><h3>پسماند پرپرتوزا و سوخت مصرف‌شده</h3><p>سوخت خارج‌شده از راکتور بسیار پرتوزاست و گرمای واپاشی تولید می‌کند. ابتدا در استخر آب قرار می‌گیرد تا هم خنک شود و هم آب نقش حفاظ پرتویی داشته باشد. پس از کاهش گرما و فراهم شدن شرایط ایمن، می‌تواند به محفظه‌های خشک منتقل شود. برخی کشورها سوخت را بازیافت می‌کنند؛ برخی دیگر آن را برای دفع نهایی آماده می‌سازند.</p></article>
+  <article class="card"><h3>دفع زمین‌شناختی عمیق</h3><p>برای برخی پسماندهای بلندعمر و پرپرتوزا، یکی از راهکارهای مورد بررسی و توسعه، قرار دادن بسته‌های مقاوم در سازندهای زمین‌شناختی پایدار در عمق زمین است. ایمنی این روش بر چند مانع متوالی تکیه دارد: شکل پایدار پسماند، محفظه، مواد پرکننده و سنگ میزبان. انتخاب محل و پایش آن به مطالعات علمی و نظارت بلندمدت نیاز دارد.</p></article>
+ </div>
+ <div class="callout">بازیافت سوخت مصرف‌شده می‌تواند بخشی از مواد قابل استفاده را جدا کند، اما همه پسماندها را از بین نمی‌برد و خودِ فرایند نیز پسماندهای دیگری ایجاد می‌کند.</div>
+</section>
+
+<section class="wrap" id="environment">
+ <div class="section-head"><div class="kicker">۱۳ / محیط‌زیست و منابع</div><h2>اثر نیروگاه هسته‌ای بر محیط‌زیست</h2>
+ <p>برای ارزیابی زیست‌محیطی، فقط دودکش نیروگاه را نباید دید؛ باید تمام چرخه عمر آن، از معدن و ساخت‌وساز تا تولید برق و مدیریت پسماند، بررسی شود.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>انتشار گازهای گلخانه‌ای</h3><p>در زمان تولید برق، نیروگاه هسته‌ای سوخت فسیلی نمی‌سوزاند و انتشار مستقیم دی‌اکسیدکربن آن بسیار پایین است. بااین‌حال، استخراج و فرآوری اورانیوم، ساخت بتن و فولاد، حمل‌ونقل و برچیدن نیروگاه انرژی مصرف می‌کنند و انتشار غیرمستقیم ایجاد می‌کنند. به همین دلیل، مقایسه منصفانه باید بر پایه انتشار در کل چرخه عمر انجام شود، نه فقط زمان کارکرد نیروگاه.</p></article>
+  <article class="card"><h3>مصرف آب و خنک‌کاری</h3><p>نیروگاه‌های حرارتی برای دفع گرمای اضافی به سامانه خنک‌کننده نیاز دارند. بعضی از آن‌ها آب را از رودخانه، دریا یا دریاچه می‌گیرند و پس از عبور از کندانسور بازمی‌گردانند؛ برخی از برج خنک‌کننده استفاده می‌کنند که بخشی از آب در آن تبخیر می‌شود. میزان برداشت و مصرف آب به طراحی، اقلیم و سامانه خنک‌کاری وابسته است.</p></article>
+  <article class="card"><h3>بخار سفید برج خنک‌کننده</h3><p>ابر سفید بالای برج خنک‌کننده معمولاً دود حاصل از سوختن اورانیوم نیست. این ظاهر عمدتاً از قطرات بسیار ریز آب تشکیل می‌شود که هنگام تماس هوای سردتر با هوای مرطوب و گرم، قابل مشاهده می‌شوند. برج خنک‌کننده گرمای باقی‌مانده پس از توربین را به محیط منتقل می‌کند.</p></article>
+  <article class="card"><h3>استخراج اورانیوم و طبیعت</h3><p>استخراج معدن می‌تواند موجب تغییر کاربری زمین، تولید باطله معدنی، مصرف آب و نیاز به کنترل گردوغبار و مواد پرتوزای طبیعی شود. کیفیت مدیریت معدن، پایش آب‌های زیرزمینی، بازسازی محل و رعایت مقررات تعیین می‌کند که اثرات محیط‌زیستی تا چه اندازه محدود شوند.</p></article>
+ </div>
+</section>
+
+<section class="wrap" id="economics">
+ <div class="section-head"><div class="kicker">۱۴ / اقتصاد انرژی</div><h2>آیا برق هسته‌ای ارزان است؟</h2>
+ <p>پاسخ یکسانی برای همه کشورها وجود ندارد. هزینه برق هسته‌ای به هزینه ساخت، نرخ بهره، مدت زمان پروژه، قیمت سوخت، هزینه نگهداری، عمر نیروگاه و هزینه مدیریت پسماند و برچیدن وابسته است.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>هزینه اولیه بالا</h3><p>ساخت نیروگاه هسته‌ای پروژه‌ای بزرگ و پیچیده است که به مهندسی تخصصی، تجهیزات دقیق، بتن و فولاد فراوان، سامانه‌های ایمنی و نظارت سخت‌گیرانه نیاز دارد. چون بخش بزرگی از هزینه پیش از آغاز تولید برق پرداخت می‌شود، تأخیر در ساخت یا افزایش نرخ تأمین مالی می‌تواند هزینه نهایی را به‌طور قابل توجهی بالا ببرد.</p></article>
+  <article class="card"><h3>هزینه سوخت و بهره‌برداری</h3><p>هزینه سوخت معمولاً فقط بخشی از هزینه کل برق هسته‌ای است. پس از ساخت، نیروگاه می‌تواند برای سال‌های طولانی برق تولید کند؛ اما برای این کار به کارکنان آموزش‌دیده، بازرسی، تعمیرات، تعویض سوخت، ارتقای تجهیزات و برنامه‌های ایمنی نیاز دارد.</p></article>
+  <article class="card"><h3>عمر طولانی و سرمایه‌گذاری بلندمدت</h3><p>نیروگاه‌ها برای کارکرد چند ده‌ساله طراحی می‌شوند و در صورت ارزیابی ایمنی و دریافت مجوز، ممکن است عمر عملیاتی آن‌ها تمدید شود. این عمر طولانی می‌تواند هزینه اولیه را در سال‌های زیادی پخش کند؛ بااین‌حال، تمدید عمر رایگان نیست و به سرمایه‌گذاری و بررسی فنی نیاز دارد.</p></article>
+  <article class="card"><h3>هزینه‌های پایان کار</h3><p>هنگام محاسبه اقتصادی نباید فقط هزینه ساخت و تولید برق را در نظر گرفت. مدیریت سوخت مصرف‌شده، نگهداری پسماند، پاک‌سازی و برچیدن نیروگاه نیز هزینه دارند. برنامه‌ریزی مالی و ذخیره منابع برای این مراحل باید از ابتدای پروژه انجام شود.</p></article>
+ </div>
+</section>
+
+<section class="wrap" id="grid">
+ <div class="section-head"><div class="kicker">۱۵ / برق در مقیاس واقعی</div><h2>برق تولیدشده چگونه به خانه‌ها می‌رسد؟</h2>
+ <p>ژنراتور برق را با ولتاژ و مشخصات معینی تولید می‌کند. سپس ترانسفورماتورها ولتاژ را برای انتقال در مسافت‌های طولانی افزایش می‌دهند و در نزدیکی مصرف‌کنندگان، پست‌های برق آن را به سطح مناسب توزیع کاهش می‌دهند.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>مگاوات با مگاوات‌ساعت فرق دارد</h3><p>مگاوات (MW) واحد توان است و نشان می‌دهد نیروگاه در یک لحظه با چه نرخی انرژی تولید می‌کند. مگاوات‌ساعت (MWh) مقدار انرژی تولیدشده طی زمان است. برای مثال، نیروگاهی با توان یک مگاوات اگر یک ساعت با توان کامل کار کند، یک مگاوات‌ساعت انرژی تولید می‌کند. اگر ۲۴ ساعت در همین سطح کار کند، ۲۴ مگاوات‌ساعت تولید خواهد کرد.</p></article>
+  <article class="card"><h3>ظرفیت نامی و تولید واقعی</h3><p>ظرفیت نامی حداکثر توان طراحی‌شده نیروگاه در شرایط مشخص است. تولید واقعی ممکن است به دلیل تعمیرات، تعویض سوخت، محدودیت شبکه یا کاهش توان کمتر باشد. ضریب ظرفیت، نسبت انرژی واقعی تولیدشده در یک بازه به انرژی‌ای است که نیروگاه در صورت کارکرد پیوسته با ظرفیت کامل می‌توانست تولید کند.</p></article>
+ </div>
+ <div class="callout">برای نمونه، یک نیروگاه ۱۰۰۰ مگاواتی در صورت کارکرد پیوسته با توان کامل طی ۲۴ ساعت، ۲۴ هزار مگاوات‌ساعت انرژی تولید می‌کند. این مثال ظرفیت نظری است، نه تضمین تولید واقعی هر روز.</div>
+</section>
+
+<section class="wrap" id="iran">
+ <div class="section-head"><div class="kicker">۱۶ / نمونه در ایران</div><h2>نیروگاه هسته‌ای بوشهر</h2>
+ <p>برای پیوند دادن موضوع با جغرافیای ایران، می‌توان نیروگاه بوشهر را به‌عنوان نمونه‌ای واقعی معرفی کرد. این بخش باید با داده‌های رسمی و تاریخ به‌روزرسانی مشخص نگهداری شود؛ چون وضعیت واحدها و پروژه‌های در دست ساخت ممکن است تغییر کند.</p></div>
+ <div class="grid2">
+  <article class="card"><h3>واحد نخست</h3><p>بر اساس پروفایل کشوری آژانس بین‌المللی انرژی اتمی در سال ۲۰۲۶، ایران یک راکتور هسته‌ای برق در حال بهره‌برداری دارد: واحد نخست نیروگاه بوشهر با ظرفیت خالص الکتریکی ۹۱۵ مگاوات. این واحد در سال ۲۰۱۳ وارد بهره‌برداری تجاری شد. ظرفیت خالص به برق قابل تحویل پس از کسر مصرف داخلی نیروگاه اشاره دارد.</p></article>
+  <article class="card"><h3>چرا نمونه بوشهر مهم است؟</h3><p>این نیروگاه نمونه‌ای برای بررسی تفاوت میان ظرفیت نامی، تولید واقعی، نگهداری و نقش برق هسته‌ای در شبکه ملی است. همچنین نشان می‌دهد یک نیروگاه فقط راکتور نیست؛ بلکه به شبکه انتقال، سامانه خنک‌کاری، نیروی انسانی متخصص، مقررات ایمنی و برنامه مدیریت سوخت و پسماند وابسته است.</p></article>
+ </div>
+ <div class="callout">آمار وضعیت نیروگاه و سهم آن از تولید برق کشور باید در زمان استفاده از سایت دوباره از پایگاه رسمی آژانس بررسی و تاریخ‌گذاری شود؛ ارقام سالانه را نباید به‌عنوان مقدار ثابت همیشگی نمایش داد.</div>
+</section>
+
+<section class="wrap" id="decommissioning">
+ <div class="section-head"><div class="kicker">۱۷ / پایان عمر نیروگاه</div><h2>وقتی نیروگاه از کار می‌افتد چه می‌شود؟</h2>
+ <p>پایان تولید برق به معنی پایان مسئولیت نیروگاه نیست. پس از توقف دائمی، باید سوخت خارج شود، مواد پرتوزا شناسایی و مدیریت شوند، تجهیزات به‌تدریج برچیده شوند و محل طبق مقررات پاک‌سازی و ارزیابی شود.</p></div>
+ <div class="process">
+  <div class="step"><h3>توقف و ایمن‌سازی</h3><p>راکتور خاموش می‌شود و سوخت و مواد عملیاتی طبق برنامه ایمن مدیریت می‌شوند.</p></div>
+  <div class="step"><h3>برداشت سوخت</h3><p>سوخت مصرف‌شده از قلب خارج و به محل نگهداری مناسب منتقل می‌شود.</p></div>
+  <div class="step"><h3>برچیدن تجهیزات</h3><p>تجهیزات با توجه به میزان آلودگی یا فعال‌شدن پرتویی، مرحله‌به‌مرحله باز می‌شوند.</p></div>
+  <div class="step"><h3>پاک‌سازی و ارزیابی</h3><p>مواد اندازه‌گیری و دسته‌بندی می‌شوند و محل برای استفاده بعدی یا آزادسازی بررسی می‌شود.</p></div>
+ </div>
+</section>
+
+<section class="wrap" id="sources">
+ <div class="section-head"><div class="kicker">برای مطالعه بیشتر</div><h2>منابع علمی و مراجع</h2><p>برای تهیه این راهنما از منابع آموزشی و نهادی استفاده شده است. آمارهای جهانی و وضعیت نیروگاه‌ها با گذشت زمان تغییر می‌کنند؛ بنابراین بهتر است کنار هر آمار، سال مرجع نوشته شود.</p></div>
+ <div class="card list">
+  <div class="list-item"><span class="num">۱</span><div><b>آژانس بین‌المللی انرژی اتمی (IAEA)</b><p><a href="https://www.iaea.org/topics/nuclear-power" target="_blank" rel="noopener">موضوع انرژی هسته‌ای و راهنماهای ایمنی</a></p></div></div>
+  <div class="list-item"><span class="num">۲</span><div><b>اداره اطلاعات انرژی آمریکا (EIA)</b><p><a href="https://www.eia.gov/energyexplained/nuclear/" target="_blank" rel="noopener">توضیح انرژی هسته‌ای، انواع راکتور و چرخه سوخت</a></p></div></div>
+  <div class="list-item"><span class="num">۳</span><div><b>کمیسیون تنظیم مقررات هسته‌ای آمریکا (NRC)</b><p><a href="https://www.nrc.gov/education-regulatory-research/the-student-corner/science-101/how-does-a-nuclear-power-plant-make-electricity" target="_blank" rel="noopener">نحوه تولید برق و اصول راکتور</a></p></div></div>
+  <div class="list-item"><span class="num">۴</span><div><b>پایگاه اطلاعات راکتورهای قدرت آژانس (PRIS)</b><p><a href="https://pris.iaea.org/" target="_blank" rel="noopener">آمار راکتورهای عملیاتی و ظرفیت کشورها</a></p></div></div>
+  <div class="list-item"><span class="num">۵</span><div><b>آژانس بین‌المللی انرژی (IEA)</b><p><a href="https://www.iea.org/reports/global-energy-review-2025/electricity" target="_blank" rel="noopener">ترکیب تولید برق جهان و سهم منابع انرژی</a></p></div></div>
+  <div class="list-item"><span class="num">۶</span><div><b>سازمان جهانی بهداشت (WHO)</b><p><a href="https://www.who.int/news-room/questions-and-answers/item/radiation-ionizing-radiation" target="_blank" rel="noopener">مبانی پرتوهای یون‌ساز و اثرات آن‌ها</a></p></div></div>
+  <div class="list-item"><span class="num">۷</span><div><b>سازمان همکاری و توسعه اقتصادی – آژانس انرژی هسته‌ای (OECD-NEA)</b><p><a href="https://oecd-nea.org/jcms/c_12088/nuclear-economics" target="_blank" rel="noopener">اقتصاد و هزینه‌های انرژی هسته‌ای</a></p></div></div>
+ </div>
+</section>
+
+</main>
+<footer><div class="wrap footer-row"><div><b style="color:var(--text)">هسته‌نما</b><br>راهنمای آموزشی انرژی هسته‌ای</div><div>محتوای آموزشی عمومی · آمارها نیازمند به‌روزرسانی دوره‌ای</div><div>ساخته‌شده با HTML، CSS و JavaScript</div></div></footer>
+<button class="backtop" id="backtop" aria-label="بازگشت به بالا">↑</button>
+<script>
+const questions=[
+ {q:"در بیشتر نیروگاه‌های هسته‌ای متداول، کدام ایزوتوپ نقش اصلی در شکافت دارد؟",a:["اورانیوم ۲۳۵","اورانیوم ۲۳۸","هیدروژن","کربن"],c:0,e:"در بسیاری از راکتورهای متداول، اورانیوم ۲۳۵ سوخت اصلی شکافت است."},
+ {q:"وظیفه اصلی میله‌های کنترل چیست؟",a:["تولید بخار","جذب نوترون و کنترل واکنش","چرخاندن توربین","خنک کردن ژنراتور"],c:1,e:"میله‌های کنترل با جذب نوترون‌ها، توان راکتور را تنظیم می‌کنند."},
+ {q:"چه چیزی توربین نیروگاه را می‌چرخاند؟",a:["نور خورشید","خود اورانیوم","بخار پرفشار","باد بیرون نیروگاه"],c:2,e:"بخار پرفشار به پره‌های توربین برخورد می‌کند و آن را می‌چرخاند."},
+ {q:"ژنراتور چه تبدیلی انجام می‌دهد؟",a:["برق به سوخت","انرژی مکانیکی به الکتریکی","آب به اورانیوم","پرتو به بخار"],c:1,e:"ژنراتور با چرخش و القای الکترومغناطیسی برق تولید می‌کند."}
+];
+let qi=0,score=0,answered=false;
+const qEl=document.getElementById('question'),opts=document.getElementById('options'),meta=document.getElementById('qmeta'),feedback=document.getElementById('feedback'),next=document.getElementById('next'),scoreEl=document.getElementById('score');
+function renderQ(){let q=questions[qi];answered=false;meta.textContent=`پرسش ${qi+1} از ${questions.length}`;qEl.textContent=q.q;opts.innerHTML='';feedback.textContent='';next.disabled=true;next.textContent=qi===questions.length-1?'دیدن نتیجه':'پرسش بعدی ←';q.a.forEach((v,i)=>{let b=document.createElement('button');b.className='option';b.textContent=v;b.onclick=()=>choose(i,b);opts.appendChild(b)})}
+function choose(i,btn){if(answered)return;answered=true;let q=questions[qi];[...opts.children].forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add('correct')});if(i===q.c){score++;feedback.textContent='آفرین! پاسخ درست است. '+q.e}else{btn.classList.add('wrong');feedback.textContent='این پاسخ درست نیست. '+q.e}scoreEl.textContent='امتیاز: '+score+' از '+questions.length;next.disabled=false}
+next.onclick=()=>{if(qi<questions.length-1){qi++;renderQ()}else{meta.textContent='آزمون به پایان رسید';qEl.textContent=`نتیجه تو: ${score} از ${questions.length}`;opts.innerHTML='';feedback.textContent=score===4?'عالی! مفاهیم اصلی را به‌خوبی یاد گرفته‌ای.':'خوب بود! بخش‌های آموزشی را مرور کن و دوباره امتحان بده.';next.textContent='شروع دوباره';next.disabled=false;next.onclick=()=>{qi=0;score=0;scoreEl.textContent='امتیاز: ۰';next.onclick=advance;renderQ()}}};
+function advance(){if(qi<questions.length-1){qi++;renderQ()}else{meta.textContent='آزمون به پایان رسید';qEl.textContent=`نتیجه تو: ${score} از ${questions.length}`;opts.innerHTML='';feedback.textContent=score===4?'عالی!':'بخش‌های آموزشی را مرور کن.';next.textContent='شروع دوباره';next.onclick=()=>{qi=0;score=0;scoreEl.textContent='امتیاز: ۰';next.onclick=advance;renderQ()}}}
+renderQ();
+const menu=document.getElementById('menu'),nav=document.getElementById('nav');menu.onclick=()=>nav.classList.toggle('open');nav.querySelectorAll('a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+const topBtn=document.getElementById('backtop');window.addEventListener('scroll',()=>topBtn.classList.toggle('show',window.scrollY>500));topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>
